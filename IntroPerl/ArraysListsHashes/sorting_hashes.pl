@@ -19,7 +19,14 @@ my %planets = (
    Charon  => 39,
 );
 
-#Print hashes by aplhabetical order of keys
+#Print hash pairs by ASCII order of keys
 foreach my $name (sort keys %planets) {
+    printf "%-8s %s\n", $name, $planets{$name};
+}
+
+say "--"x10;
+
+#Print hash pairs by numerical order of value, or by ASCII value of name if values are equal
+foreach my $name (sort { $planets{$a} <=> $planets{$b} or $a cmp $b } keys %planets) {
     printf "%-8s %s\n", $name, $planets{$name};
 }
